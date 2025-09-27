@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ "ubuntu", "windows", "macos" ]
-    runs-on: ${{ matrix.os }}-latest
+    runs-on: ${{ matrix.os }}-${{ (matrix.os == 'macos') && '15-intel' || 'latest' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
